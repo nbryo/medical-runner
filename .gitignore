@@ -1,0 +1,35 @@
+# Godot 4+ 用 .gitignore
+
+# エディタが生成するキャッシュ・インポート結果
+.godot/
+.import/
+
+# ビルド/エクスポート成果物(基本は除外、build/web/だけ Vercel 用に残す)
+/build/*
+!/build/web/
+/export/
+/exports/
+*.zip
+*.apk
+*.aab
+*.exe
+*.dmg
+
+# OS 生成物
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Claude Code ローカル設定
+.claude/
+
+# 機密情報
+.env
+.env.*
+*.key
+*.pem

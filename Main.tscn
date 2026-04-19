@@ -1,0 +1,250 @@
+[gd_scene format=3 uid="uid://bwfgfcwn8ihih"]
+
+[ext_resource type="Script" uid="uid://bvj2ybj7ym8m4" path="res://Main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://cr5oc31uno08l" path="res://Player.tscn" id="2_player"]
+[ext_resource type="PackedScene" path="res://Ground.tscn" id="3_ground"]
+[ext_resource type="PackedScene" path="res://Obstacle.tscn" id="4_obstacle"]
+[ext_resource type="PackedScene" path="res://Coin.tscn" id="5_coin"]
+[ext_resource type="PackedScene" path="res://GameOver.tscn" id="6_gameover"]
+[ext_resource type="PackedScene" path="res://HoleWarning.tscn" id="7_holewarning"]
+
+[node name="Main" type="Node2D" unique_id=1799600146]
+script = ExtResource("1_main")
+ground_scene = ExtResource("3_ground")
+obstacle_scene = ExtResource("4_obstacle")
+coin_scene = ExtResource("5_coin")
+game_over_scene = ExtResource("6_gameover")
+hole_warning_scene = ExtResource("7_holewarning")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1241404079]
+offset_left = -24.0
+offset_top = -24.0
+offset_right = 984.0
+offset_bottom = 420.0
+color = Color(0.96, 0.94, 0.88, 1)
+
+[node name="FloorBackground" type="ColorRect" parent="." unique_id=971532498]
+offset_left = -24.0
+offset_top = 418.0
+offset_right = 984.0
+offset_bottom = 564.0
+color = Color(0.82, 0.82, 0.85, 1)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=227359998]
+position = Vector2(480, 270)
+
+[node name="Player" parent="." unique_id=1390751398 instance=ExtResource("2_player")]
+position = Vector2(320, 320)
+
+[node name="Ceiling" type="CanvasLayer" parent="." unique_id=811026306]
+
+[node name="CeilingBar" type="ColorRect" parent="Ceiling" unique_id=794067321]
+offset_right = 960.0
+offset_bottom = 44.0
+color = Color(0.82, 0.82, 0.85, 1)
+
+[node name="CeilingEdge" type="ColorRect" parent="Ceiling" unique_id=373248061]
+offset_top = 42.0
+offset_right = 960.0
+offset_bottom = 46.0
+color = Color(0.55, 0.55, 0.58, 1)
+
+[node name="Light1" type="ColorRect" parent="Ceiling" unique_id=1584137767]
+offset_left = 30.0
+offset_top = 28.0
+offset_right = 90.0
+offset_bottom = 40.0
+color = Color(1, 1, 0.92, 1)
+
+[node name="Light2" type="ColorRect" parent="Ceiling" unique_id=1794281168]
+offset_left = 150.0
+offset_top = 28.0
+offset_right = 210.0
+offset_bottom = 40.0
+color = Color(1, 1, 0.92, 1)
+
+[node name="Light3" type="ColorRect" parent="Ceiling" unique_id=331730649]
+offset_left = 270.0
+offset_top = 28.0
+offset_right = 330.0
+offset_bottom = 40.0
+color = Color(1, 1, 0.92, 1)
+
+[node name="Light4" type="ColorRect" parent="Ceiling" unique_id=474562569]
+offset_left = 390.0
+offset_top = 28.0
+offset_right = 450.0
+offset_bottom = 40.0
+color = Color(1, 1, 0.92, 1)
+
+[node name="Light5" type="ColorRect" parent="Ceiling" unique_id=614100975]
+offset_left = 510.0
+offset_top = 28.0
+offset_right = 570.0
+offset_bottom = 40.0
+color = Color(1, 1, 0.92, 1)
+
+[node name="Light6" type="ColorRect" parent="Ceiling" unique_id=1939028846]
+offset_left = 630.0
+offset_top = 28.0
+offset_right = 690.0
+offset_bottom = 40.0
+color = Color(1, 1, 0.92, 1)
+
+[node name="Light7" type="ColorRect" parent="Ceiling" unique_id=2099684197]
+offset_left = 750.0
+offset_top = 28.0
+offset_right = 810.0
+offset_bottom = 40.0
+color = Color(1, 1, 0.92, 1)
+
+[node name="Light8" type="ColorRect" parent="Ceiling" unique_id=208553082]
+offset_left = 870.0
+offset_top = 28.0
+offset_right = 930.0
+offset_bottom = 40.0
+color = Color(1, 1, 0.92, 1)
+
+[node name="RedLightOverlay" type="CanvasLayer" parent="." unique_id=516192933]
+layer = 5
+
+[node name="Flash" type="ColorRect" parent="RedLightOverlay" unique_id=1289008317]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(1, 0.2, 0.2, 0)
+
+[node name="PlayUI" type="CanvasLayer" parent="." unique_id=36090315]
+layer = 2
+
+[node name="RedTintOverlay" type="ColorRect" parent="PlayUI" unique_id=675386747]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(1, 0.2, 0.2, 0.15)
+
+[node name="DebugDeadzone" type="ColorRect" parent="PlayUI" unique_id=234069367]
+visible = false
+offset_top = 150.0
+offset_right = 960.0
+offset_bottom = 390.0
+mouse_filter = 2
+color = Color(0, 1, 0.2, 0.08)
+
+[node name="EdgeLightLeft" type="ColorRect" parent="PlayUI" unique_id=1325808802]
+visible = false
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 4.0
+mouse_filter = 2
+color = Color(1, 0.1, 0.1, 0.3)
+
+[node name="EdgeLightRight" type="ColorRect" parent="PlayUI" unique_id=301243770]
+visible = false
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+mouse_filter = 2
+color = Color(1, 0.1, 0.1, 0.3)
+
+[node name="ScoreLabel" type="Label" parent="PlayUI" unique_id=1539640105]
+offset_left = 16.0
+offset_top = 54.0
+offset_right = 320.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.15, 0.18, 0.3, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.7)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 28
+text = "勤続時間: 0"
+
+[node name="CoinLabel" type="Label" parent="PlayUI" unique_id=2000740533]
+offset_left = 16.0
+offset_top = 86.0
+offset_right = 320.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0.78, 0.52, 0.05, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.7)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 28
+text = "診療報酬: 0"
+
+[node name="RankLabel" type="Label" parent="PlayUI" unique_id=1444516035]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -320.0
+offset_top = 54.0
+offset_right = -16.0
+offset_bottom = 84.0
+theme_override_colors/font_color = Color(0.95, 0.75, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.7)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 28
+text = "階級: 新卒"
+horizontal_alignment = 2
+
+[node name="MentalGauge" type="Control" parent="PlayUI" unique_id=985278437]
+layout_mode = 3
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 1.0
+anchor_right = 0.8
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = -90.0
+offset_right = 0.0
+offset_bottom = -40.0
+
+[node name="Label" type="Label" parent="PlayUI/MentalGauge" unique_id=1910247111]
+layout_mode = 0
+anchor_right = 1.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 16
+text = "心理的余裕 50 / 100"
+horizontal_alignment = 1
+
+[node name="BarBg" type="ColorRect" parent="PlayUI/MentalGauge" unique_id=426907729]
+layout_mode = 0
+anchor_right = 1.0
+offset_top = 26.0
+offset_bottom = 50.0
+color = Color(0.15, 0.15, 0.17, 0.85)
+
+[node name="BarFill" type="ColorRect" parent="PlayUI/MentalGauge" unique_id=1762861573]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 28.0
+offset_right = 150.0
+offset_bottom = 48.0
+color = Color(0.3, 0.9, 0.4, 1)
+
+[node name="Notification" type="Label" parent="PlayUI" unique_id=96922139]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -150.0
+offset_right = 120.0
+offset_bottom = -118.0
+theme_override_colors/font_color = Color(1, 1, 0.9, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,84 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://Coin.gd" id="1_coin"]
+[ext_resource type="Texture2D" path="res://assets/kenney_platformer-art-deluxe/Base pack/Items/coinGold.png" id="2_tex_coin"]
+[ext_resource type="Texture2D" path="res://assets/kenney_platformer-art-deluxe/Candy expansion/Tiles/heart.png" id="3_tex_heart"]
+[ext_resource type="Texture2D" path="res://assets/kenney_platformer-art-deluxe/Base pack/Items/star.png" id="4_tex_star"]
+
+[sub_resource type="RectangleShape2D" id="RectShape_coin"]
+size = Vector2(32, 32)
+
+[sub_resource type="StyleBoxFlat" id="SB_label"]
+bg_color = Color(0, 0, 0, 0.55)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+content_margin_left = 6.0
+content_margin_right = 6.0
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+
+[node name="Coin" type="Area2D"]
+script = ExtResource("1_coin")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0.957, 0.76, 0.76, 1)
+
+[node name="SweetsChip1" type="ColorRect" parent="."]
+visible = false
+offset_left = -10.0
+offset_top = -8.0
+offset_right = -4.0
+offset_bottom = -2.0
+color = Color(0.545, 0.271, 0.075, 1)
+
+[node name="SweetsChip2" type="ColorRect" parent="."]
+visible = false
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 2.0
+color = Color(0.545, 0.271, 0.075, 1)
+
+[node name="SweetsChip3" type="ColorRect" parent="."]
+visible = false
+offset_left = -6.0
+offset_top = 4.0
+offset_right = 0.0
+offset_bottom = 10.0
+color = Color(0.545, 0.271, 0.075, 1)
+
+[node name="CoinSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_tex_coin")
+scale = Vector2(0.5, 0.5)
+
+[node name="HeartSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_tex_heart")
+scale = Vector2(0.5, 0.5)
+
+[node name="StarSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_tex_star")
+scale = Vector2(0.55, 0.55)
+
+[node name="TypeLabel" type="Label" parent="."]
+offset_left = -64.0
+offset_top = -48.0
+offset_right = 64.0
+offset_bottom = -22.0
+text = "診療報酬"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("SB_label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectShape_coin")
