@@ -23,6 +23,10 @@ window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 window/handheld/orientation="landscape"
 
+[gui]
+
+theme/custom_font="res://assets/fonts/NotoSansJP-Regular.ttf"
+
 [input]
 
 jump={
